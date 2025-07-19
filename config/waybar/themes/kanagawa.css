@@ -1,0 +1,23 @@
+/* --- main colors for window --- */
+@define-color bar-bg rgba(31, 31, 40, 0.8);
+@define-color bar-fg #DCD7BA;
+
+/* --- btn colors --- */
+/* main */
+@define-color btn-fg #54546D;
+@define-color btn-bg transparent;
+@define-color btn-br transparent;
+
+/* active */
+@define-color btn-fg-act #16161D;
+@define-color btn-bg-act #E6C384;
+@define-color btn-br-act #E6C384;
+
+/* urgent */
+@define-color btn-fg-urg #16161D;
+@define-color btn-bg-urg #E46876;
+@define-color btn-br-urg #E46876;
+
+/* --- misc --- */
+@define-color hypr-window-bg rgba(22, 22, 29, 0.7);
+@define-color kdeconnect-bg #957FB8;

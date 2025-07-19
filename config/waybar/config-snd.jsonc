@@ -1,0 +1,201 @@
+{
+  "layer": "top",
+  "position": "bottom",
+  "height": 32,
+  "spacing": 4,
+  "margin": "0",
+  "output": "HDMI-A-1",
+  "modules-left": ["group/clock", "custom/left-divider", "niri/workspaces"],
+  "modules-center": [],
+  "modules-right": [
+    "network",
+    "custom/right-divider",
+    "group/audio",
+    "custom/right-divider",
+    "group/hardware",
+  ],
+  "tray": {
+    "icon-size": 19,
+    "spacing": 3,
+  },
+  "custom/left-divider": {
+    "format": "\\",
+  },
+  "custom/right-divider": {
+    "format": "/",
+  },
+  "custom/spotify": {
+    "format": "{0}",
+    "escape": true,
+    "return-type": "json",
+    "max-length": 40,
+    "on-click": "playerctl -p spotify play-pause",
+    "on-click-right": "killall spotify",
+    "smooth-scrolling-threshold": 10, // This value was tested using a trackpad, it should be lowered if using a mouse.
+    "on-scroll-up": "playerctl -p spotify next",
+    "on-scroll-down": "playerctl -p spotify previous",
+    "exec": "python $HOME/.config/waybar/scripts/mediaplayer.py --player spotify 2> /dev/null", // Script in resources/custom_modules folder
+    "exec-if": "pgrep spotify",
+  },
+  "memory": {
+    "interval": 30,
+    "format": " {percentage}%",
+    "max-length": 10,
+  },
+  "niri/workspaces": {
+    "format": "{value}",
+  },
+  "hyprland/workspaces": {
+    "format": "{}",
+  },
+  "niri/language": {
+    "format": "  {}",
+    "format-en": "en",
+    "format-ru": "ru",
+  },
+  "hyprland/language": {
+    "format": "  {}",
+    "format-en": "en",
+    "format-ru": "ru",
+    "on-click": "hyprctl switchxkblayout wings-tech-gaming-mouse-keyboard next",
+  },
+  "hyprland/window": {
+    "format": "{}",
+    "rewrite": {
+      "(.*) - Thorium": "🌎 $1",
+      "(.*) - fish": "> [$1]",
+    },
+    "separate-outputs": true,
+  },
+  "pulseaudio#sink": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click": "~/.config/waybar/scripts/toggle_volpan",
+    "on-scroll-up": "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-",
+    "scroll-step": 5,
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""],
+    },
+  },
+  "pulseaudio#mic": {
+    "format": "{format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
+    "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%",
+    "scroll-step": 5,
+  },
+  "cpu": {
+    "interval": 10,
+    "format": "  {usage}%",
+    "max-length": 10,
+  },
+  "clock#main": {
+    "format": "  {:%H:%M}",
+  },
+  "clock#date": {
+    "format": "{:%a, %d %b %H:%M}",
+  },
+  "custom/kdeconnect": {
+    "exec": "~/.config/waybar/scripts/kdec_bat",
+    "format": " {}",
+    "on-click": "kdeconnect-app &",
+    "on-click-right": "~/.config/waybar/scripts/kdec_share",
+    "max-length": 27,
+    "interval": 5,
+  },
+  "network": {
+    "format-ethernet": "",
+    "format-wifi": "",
+    "format-disconnected": "",
+  },
+  "battery": {
+    "format": "{icon}  {capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    "interval": 30,
+    "states": {
+      "warning": 40,
+      "critical": 15,
+    },
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}  {percent}%",
+    "format-icons": ["", ""],
+  },
+  "group/hardware": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-left-to-right": false,
+    },
+    "modules": ["niri/language", "cpu", "memory", "disk"],
+  },
+  "group/clock": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-left-to-right": true,
+    },
+    "modules": ["clock#main", "clock#date"],
+  },
+  "group/audio": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-left-to-right": false,
+    },
+    "modules": ["pulseaudio#sink", "pulseaudio#mic"],
+  },
+  "group/group-power": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+    },
+    "modules": [
+      "custom/power", // First element is the "group leader" and won't ever be hidden
+      "custom/reboot",
+      "custom/quit",
+      "custom/lock",
+      "custom/reboot-to-windows",
+    ],
+  },
+  "custom/quit": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "hyprctl dispatch exit",
+  },
+  "custom/lock": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "hyprlock",
+  },
+  "custom/reboot": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "reboot",
+  },
+  "custom/power": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "shutdown now",
+  },
+  "custom/reboot-to-windows": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "systemctl reboot --boot-loader-entry=auto-windows",
+  },
+  "disk": {
+    "interval": 30,
+    "format": "  {specific_free:0.2f} GB free",
+    "unit": "GB",
+    "path": "/",
+  },
+}

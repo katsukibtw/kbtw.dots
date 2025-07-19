@@ -1,0 +1,165 @@
+@import "./themes/kbtw-ui.css";
+
+/** {*/
+/* `otf-font-awesome` is required to be installed for icons */
+/*}*/
+
+window#waybar {
+  background-color: @bar-bg;
+  color: @bar-fg;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  border-radius: 0px;
+  font-family:
+    "Mononoki Nerd Font", mononoki, "Material Design Icons",
+    "Font Awesome 6 Free Solid", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+#custom-left-divider,
+#custom-right-divider {
+  color: #6c7086;
+}
+
+#clock.main {
+  margin: 0 0.625rem 0 1.25rem;
+}
+
+#clock.date {
+  margin: 0 0.625rem 0 0.25rem;
+}
+
+/* -- left side -- */
+/* buttons from 'power' group */
+#custom-quit,
+#custom-lock,
+#custom-reboot,
+#custom-reboot-to-windows,
+#custom-power {
+  padding: 0 0.85rem;
+}
+
+#custom-power {
+  color: @poweroff;
+  margin: 0 0 0 0.25rem;
+}
+
+#custom-reboot {
+  color: @reboot;
+}
+
+#custom-quit {
+  color: @logout;
+}
+
+#custom-lock {
+  color: @lock;
+}
+
+#custom-reboot-to-windows {
+  color: @reboot-windows;
+}
+
+#workspaces {
+  padding: 4px 0 4px 0.125rem;
+  min-height: 0;
+}
+
+#workspaces button {
+  padding: 0 0.25rem;
+  border-radius: 0.4rem;
+  min-height: 0;
+  color: @btn-fg;
+  background-color: @btn-bg;
+}
+
+#workspaces button.empty {
+  color: @btn-fg-empty;
+}
+
+#workspaces button.active {
+  background-color: @btn-bg-act;
+  color: @btn-fg-act;
+}
+
+#workspaces button.urgent {
+  color: #f38ba8;
+  background-color: rgba(243, 139, 168, 0.3);
+}
+
+#custom-kdeconnect {
+  padding: 0 0.5rem;
+  color: @kdec-fg;
+}
+
+#window {
+  padding: 0 0.5rem;
+}
+
+/* -- right side -- */
+#language,
+#pulseaudio.sink,
+#pulseaudio.mic,
+#network,
+#cpu,
+#memory,
+#disk,
+#custom-spotify,
+#tray {
+  margin: 0 0.75rem;
+}
+
+#custom-spotify {
+  padding: 0;
+  color: @spotify;
+  background-color: transparent;
+  border-radius: 0.4rem;
+}
+
+#custom-cassette {
+  margin: 0.25rem;
+  padding: 0 0.5rem;
+  color: @btn-fg-act;
+  background-color: @btn-bg-act;
+  border-radius: 0.3rem;
+}
+
+/*#network.ethernet {*/
+/*color: @net-con;*/
+/*}*/
+
+#pulseaudio.sink.source-muted {
+  color: @pa-mic-muted;
+}
+
+#pulseaudio.mic.source-muted,
+#pulseaudio.sink.muted,
+#network.disconnected {
+  color: @net-discon;
+}
+
+/*#cpu {*/
+/*color: @cpu;*/
+/*}*/
+
+/*#memory {*/
+/*color: @memory;*/
+/*}*/
+
+/*#disk {*/
+/*color: @disk;*/
+/*}*/
+
+#tray {
+  margin: 0 1rem 0 0.5rem;
+}
+
+#tray menu {
+  font-family: "Fixel Display";
+  font-size: 16px;
+  padding: 9px;
+}

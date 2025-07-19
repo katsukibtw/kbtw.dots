@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+DEVICE_NAME=$(kdeconnect-cli -a --name-only 2>&1 | sed 's/0 devices found//')
+
+if [ ! -z "$DEVICE_NAME" -a "$DEVICE_NAME" != " " ]; then
+  kdeconnect-cli --share "$(zenity --file-selection)" -n "$DEVICE_NAME"
+fi

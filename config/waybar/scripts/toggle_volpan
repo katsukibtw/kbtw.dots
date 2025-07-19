@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+pkill -f "/usr/bin/gjs -m /usr/bin/ags -c /home/katsuki/.config/ags/volumepanel-config.js -b volumepanel" || ags -c ~/.config/ags/volumepanel-config.js -b volumepanel

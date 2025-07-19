@@ -1,0 +1,33 @@
+/* --- main colors for window --- */
+@define-color bar-bg rgba(24, 24, 37, 0.8);
+@define-color bar-fg #cdd6f4;
+
+/* --- btn colors --- */
+/* main */
+@define-color btn-fg #a6adc8;
+@define-color btn-fg-empty #6c7086;
+@define-color btn-bg transparent;
+@define-color btn-br transparent;
+
+/* active */
+@define-color btn-fg-act #11111b;
+@define-color btn-bg-act #b4befe;
+@define-color btn-br-act @btn-bg-act;
+
+/* urgent */
+@define-color btn-fg-urg @btn-fg-act;
+@define-color btn-bg-urg #f38ba8;
+@define-color btn-br-urg @btn-bg-urg;
+
+/* misc */
+@define-color kdec-fg #b4befe;
+
+@define-color net-discon #f38ba8;
+@define-color net-con #89dceb;
+
+@define-color pa-muted #f38ba8;
+@define-color pa-mic-muted #cba6f7;
+
+@define-color cpu @pa-mic-muted;
+@define-color memory #b4befe;
+@define-color disk #89b4fa;

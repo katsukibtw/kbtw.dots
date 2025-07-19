@@ -1,0 +1,40 @@
+/* --- main colors for window --- */
+@define-color bar-bg #1b1b1b;
+@define-color bar-fg #c9c9c9;
+
+/* --- btn colors --- */
+/* main */
+@define-color btn-fg #666666;
+@define-color btn-fg-empty #393939;
+@define-color btn-bg transparent;
+@define-color btn-br transparent;
+
+/* active */
+@define-color btn-fg-act #c9c9c9;
+@define-color btn-bg-act transparent;
+@define-color btn-br-act @btn-bg-act;
+
+/* urgent */
+@define-color btn-fg-urg @btn-fg-act;
+@define-color btn-bg-urg #ef6f5f;
+@define-color btn-br-urg @btn-bg-urg;
+
+/* misc */
+@define-color kdec-fg #adddd4;
+
+@define-color net-discon #ef6f5f;
+@define-color net-con #c9c9c9;
+
+@define-color pa-muted #f89b8c;
+@define-color pa-mic-muted #ff9e82;
+
+@define-color cpu @pa-mic-muted;
+@define-color memory #feb55e;
+@define-color disk #cfaeec;
+@define-color spotify #c9d8a8;
+
+@define-color poweroff #c9c9c9;
+@define-color reboot @pa-mic-muted;
+@define-color logout #ffbd71;
+@define-color lock #cfaeec;
+@define-color reboot-windows #adddd4;

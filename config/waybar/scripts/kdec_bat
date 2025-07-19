@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+DEVICE_NAME=$(kdeconnect-cli -a --name-only 2>&1)
+DEVICE_ID=$(kdeconnect-cli -a --id-only 2>&1)
+DEVICE_BAT=$(gdbus call --session --dest org.kde.kdeconnect --object-path /modules/kdeconnect/devices/$DEVICE_ID/battery --method org.freedesktop.DBus.Properties.Get org.kde.kdeconnect.device.battery charge | grep -E -o "[[:digit:]]{1,3}")
+
+if [ ! -z "$DEVICE_BAT" -a "$DEVICE_BAT" != " " ]; then
+  echo "$DEVICE_NAME ($DEVICE_BAT%)"
+else
+  echo "$DEVICE_NAME"
+fi
